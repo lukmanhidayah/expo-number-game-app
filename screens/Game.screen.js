@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
+// import { ScreenOrientation } from "expo";
 //all components needed
 import NumberContainer from "../components/NumberContainer.component";
 import Card from "../components/Card.component";
@@ -40,6 +40,7 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const Game = (props) => {
+  // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.POTRAIT);
   const initalGuess = generateRandomBetweenNumber(1, 100, props.userChoice);
   const [currentGuess, setCurrentGuess] = useState(initalGuess);
   // const [rounds, setRounds] = useState(0);
@@ -145,12 +146,12 @@ const Game = (props) => {
       <Text style={DefaultStyles.bodyText}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card
-        style={[
-          styles.buttonContainer,
-          {
+        style={{
+          ...styles.buttonContainer,
+          ...{
             marginTop: availableDeviceHeight > 600 ? 20 : 10,
           },
-        ]}
+        }}
       >
         <MainButton onPress={nextGuessHandler.bind(this, "lower")}>
           <Ionicons name="md-remove" size={24} color="white" />

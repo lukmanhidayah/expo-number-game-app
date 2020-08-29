@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 
 //all components needed
@@ -44,15 +45,15 @@ const GameOver = (props) => {
       <View style={styles.screen}>
         <TitleText>The Game is Over</TitleText>
         <View
-          style={[
-            styles.imageContainer,
-            {
+          style={{
+            ...styles.imageContainer,
+            ...{
               width: availableDeviceWidth * 0.7,
               height: availableDeviceWidth * 0.7,
               borderRadius: (availableDeviceWidth * 0.7) / 2,
               marginVertical: availableDeviceHeight / 30,
             },
-          ]}
+          }}
         >
           <Image
             // source={require("../assets/success.png")}
@@ -65,10 +66,10 @@ const GameOver = (props) => {
           />
         </View>
         <View
-          style={[
-            styles.resutlContainter,
-            { marginVertical: availableDeviceHeight / 60 },
-          ]}
+          style={{
+            ...styles.resutlContainter,
+            ...{ marginVertical: availableDeviceHeight / 60 },
+          }}
         >
           <BodyText
             style={{
